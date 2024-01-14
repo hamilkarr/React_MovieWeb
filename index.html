@@ -3,7 +3,6 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
-        <title>replit</title>
         <!-- <link href="style.css" rel="stylesheet" type="text/css" /> -->
     </head>
     <body>
@@ -14,29 +13,18 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
         const root = document.getElementById("root");
-
-        const Title = () => (
-            <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
-                I'm a title{" "}
-            </h3>
-        );
-
-        const Button = () => (
-            <button
-                style={{
-                backgroundColor: "tomato",
-                }}
-                onClick={() => console.log("clicked")}
-            >
-                Click me
-            </button>
-        );
-        const Container = () => (
-        <div>
-            <Title />
-            <Button />
-        </div>
-        );
-        ReactDOM.render(<Container />, root); // show it to the user
+        function App() {
+            const [counter, setCounter] = React.useState(0);
+            const onClick = () => {
+                setCounter(counter + 1);
+            }
+            return (
+                <div>
+                    <h3 id="title">Total clicks : {counter}</h3>
+                    <button onClick={onClick}>Click me</button>
+                </div>
+            );
+        };
+        ReactDOM.render(<App />, root);
     </script>
 </html>

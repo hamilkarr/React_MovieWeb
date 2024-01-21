@@ -74,16 +74,30 @@
                 <div>
                     <label>
                         Km
-                        <input type="number" placeholder='km' value={amount} onChange={onChange} disabled={inverted}/>
+                        <input
+                            type="number"
+                            placeholder="km"
+                            value={inverted ? Math.round(amount * 1.60934) : amount}
+                            onChange={onChange}
+                            disabled={inverted}
+                        />
                     </label>
                     <br />
                     <label>
                         Miles
-                        <input type="number" placeholder='miles' value={amount * 0.621371} disabled={!inverted} />
+                        <input
+                            type="number"
+                            placeholder="miles"
+                            value={inverted ? amount : Math.round(amount * 0.621371)}
+                            onChange={onChange}
+                            disabled={!inverted}
+                        />
                     </label>
                     <br />
                     <button onClick={reset}>Reset</button>
-                    <button onClick={onInvert}>{inverted ? "Turn Back" : "Invert"}</button>
+                    <button onClick={onInvert}>
+                        {inverted ? 'Turn Back' : 'Invert'}
+                    </button>
                 </div>
             );
         }
